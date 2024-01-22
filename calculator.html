@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="calculator.js" defer></script>
+    <title>Conversion Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Conversion Calculator</h1>
+    </header>
+    <section>
+        <label for="conversionType">Select Conversion Type:</label>
+        <p>
+          <select id="conversionType" onchange="updateForm()">
+            <option value="currency">Currency Us to Myr</option>
+            <option value="measurement">Measurement Cm to M</option>
+            <option value="poweroftwo">Power of Two</option>
+            <option value="distance">Distance Km to M</option>
+            <option value="temperature">Temperature celcius To Farenheit</option>
+          </select>
+        </p>
+          <input type="number" id="input" placeholder="Enter your value">
+		  
+        <button onclick="calculateConversion()">Calculate</button>
+        <p id="answer"></p>
+    </section>
+	<nav><a  href="homepage.html" target="_blank">HOMEPAGE</a>  |  <a  href="conversion.html" target="_blank"> CONVERSION PAGE</a>  |  <a  href="calculator.html" target="_blank">CONVERSION CALCULATOR</a></nav>
+    <footer>
+        <p>&copy; 2024 My Conversion Calculator</p>
+    </footer>
+	<script>
+function calculateConversion() {
+    var conversionType = document.getElementById("conversionType").value;
+	var input = document.getElementById('input').value;
+	var answer;
+
+    // Add your conversion calculation logic for each type
+    switch (conversionType) {
+        case "currency":
+            answer = input * 4.50;
+            break;
+
+        case "measurement":
+            answer = input * 100;
+            break;
+
+        case "poweroftwo":
+           answer = input * input;
+            break;
+
+        case "distance":
+            answer = input / 1000;
+            break;
+
+        case "temperature":
+            answer = input * 9/5 + 32;
+            break;
+
+        default:
+            break;
+    }
+
+    // Display the result
+    document.getElementById("answer").innerText = "Result: " + answer;
+}
+
+	</script>
+</body>
+</html>
